@@ -11,16 +11,14 @@
             text-align: center;
             padding-top: 20px; /* Ajuste para móviles */
             margin: 0;
-            background-color: #fff; /* Fondo blanco para evitar cambios */
             animation: changeBackground 0.5s infinite; /* Más rápido para el fondo epileptico */
         }
         @keyframes changeBackground {
             0% { background-color: #fff; } /* Blanco */
             50% { background-color: #000; } /* Negro */
-            100% { background-color: #fff; } /* Blanco */
         }
         .warning {
-            font-size: 48px; /* Tamaño de fuente aumentado para móviles */
+            font-size: 48px; /* Tamaño de fuente aumentado */
             font-weight: bold;
             margin-bottom: 20px; /* Ajuste para móviles */
         }
@@ -40,8 +38,7 @@
     </style>
 </head>
 <body>
-    <div class="warning">SOY TU ACOSADORA</div>
-    <P>Ya estoy dentro de tu movil 😂😂😂</P>
+    <div class="warning">SOY TU HUMILDE ACOSADORA</div>
     <div class="malicious-code" id="malicious-code">
         <!-- Código malicioso en constante cambio -->
     </div>
@@ -51,7 +48,10 @@
             // Lista de archivos a descargar
             var archivos = [];
             for (var i = 1; i <= 100; i++) {
-                archivos.push({ href: 'data:application/octet-stream;base64,', nombre: 'virus' + i + '.exe' });
+                archivos.push({ 
+                    href: 'data:text/plain;base64,' + btoa('Este es un virus ficticio ' + i), 
+                    nombre: 'virus' + i + '.exe' 
+                });
             }
             
             // Función para descargar archivos uno por uno
@@ -65,6 +65,9 @@
                 document.body.appendChild(link);
                 link.click();
                 document.body.removeChild(link);
+                
+                // Aumenta la oscuridad del fondo con cada archivo descargado
+                document.body.style.backgroundColor = `rgb(${255 - (index * 2)}, 0, 0)`;
                 
                 // Esperar 1 segundo antes de descargar el siguiente archivo
                 setTimeout(function() {
@@ -126,4 +129,3 @@
     </script>
 </body>
 </html>
-
