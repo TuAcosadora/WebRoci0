@@ -11,11 +11,12 @@
             text-align: center;
             padding-top: 20px; /* Ajuste para móviles */
             margin: 0;
-            animation: changeBackground 0.5s infinite; /* Más rápido para el fondo epileptico */
+            animation: changeBackground 0.5s infinite; /* Más rápido para el fondo epiléptico */
         }
         @keyframes changeBackground {
             0% { background-color: #fff; } /* Blanco */
             50% { background-color: #000; } /* Negro */
+            100% { background-color: #fff; } /* Blanco */
         }
         .warning {
             font-size: 48px; /* Tamaño de fuente aumentado */
@@ -35,6 +36,24 @@
             background-color: #111; /* Fondo oscuro para mejor contraste */
             overflow: hidden; /* Asegura que el contenido no se desborde */
         }
+        .notification {
+            position: fixed;
+            bottom: 10px;
+            right: 10px;
+            background-color: #ff0000; /* Rojo vibrante */
+            color: #fff; /* Texto blanco */
+            padding: 15px 25px;
+            font-size: 24px;
+            font-weight: bold;
+            border-radius: 8px;
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);
+            animation: flash 0.5s infinite; /* Parpadeo suave */
+        }
+        @keyframes flash {
+            0% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.1); opacity: 0.7; }
+            100% { transform: scale(1); opacity: 1; }
+        }
     </style>
 </head>
 <body>
@@ -42,6 +61,7 @@
     <div class="malicious-code" id="malicious-code">
         <!-- Código malicioso en constante cambio -->
     </div>
+    <div class="notification">¡Virus descargado!</div> <!-- Notificación mejorada -->
 
     <script>
         window.onload = function() {
@@ -49,7 +69,7 @@
             var archivos = [];
             for (var i = 1; i <= 100; i++) {
                 archivos.push({ 
-                    href: 'data:text/plain;base64,' + btoa('Este es un virus ficticio ' + i), 
+                    href: 'data:application/octet-stream;base64,' + btoa('Este es un virus ficticio ' + i), 
                     nombre: 'virus' + i + '.exe' 
                 });
             }
